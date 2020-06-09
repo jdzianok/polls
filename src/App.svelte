@@ -12,51 +12,16 @@
     activeItem = e.detail;
   };
 
-  let polls = [
-    {
-      id: 1,
-      question: "U mnie czy u Ciebie?",
-      answerA: "U mnie",
-      answerB: "U Ciebie",
-      votesA: 1,
-      votesB: 8
-    },
-    {
-      id: 2,
-      question: "Piwko i pizza?",
-      answerA: "Tak",
-      answerB: "Jak najbardziej",
-      votesA: 4,
-      votesB: 9
-    }
-  ];
-
-  const handleAdd = e => {
-    const poll = e.detail;
-    polls = [poll, ...polls];
+  const handleAdd = () => {
     activeItem = "Current Polls";
-    console.log(polls);
   };
-
-  const handleVote = e => {
-    const { id, option } = e.detail;
-    let copiedPolls = [...polls];
-    let upvotedPoll = copiedPolls.find(poll => poll.id === id);
-    if (option === 'a') {
-      upvotedPoll.votesA++;
-    } else if (option === 'b') {
-      upvotedPoll.votesB++;
-    }
-
-    polls = copiedPolls;
-  }
 </script>
 
 <Header />
 <main>
   <Tabs {activeItem} {items} on:tabChange={tabChange}/>
   {#if activeItem === "Current Polls"}
-     <PollList {polls} on:vote={handleVote}/>
+     <PollList/>
   {:else if activeItem === "Add New Poll"}
    <PollForm on:add={handleAdd}/>
   {/if}

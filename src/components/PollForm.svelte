@@ -72,7 +72,7 @@
 
 <style>
   form {
-    width: 400px;
+    max-width: 400px;
     margin: 0 auto;
     text-align: center;
   }

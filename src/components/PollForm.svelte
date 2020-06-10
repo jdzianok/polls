@@ -80,6 +80,11 @@
     margin: 0 auto;
     text-align: center;
   }
+  @media screen and (max-width: 500px) {
+    form {
+      padding: 0 40px;
+    }
+  }
   .form-field {
     margin: 18px auto;
   }
